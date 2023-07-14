@@ -7,7 +7,7 @@ function love.load()
 
   -- Prepare window
   love.window.setTitle("Cookie Conundrum")
-  love.window.setMode(1920, 1080, {fullscreen=true})
+  love.window.setMode(1280, 720, {fullscreen=false})
 
   gStateStack = StateStack()
   gStateStack:push(TitleState())
@@ -15,7 +15,7 @@ function love.load()
   love.keyboard.keysPressed = {}
 
   Talkies.font = love.graphics.newFont("font/open_sans.ttf", 40)
-  Talkies.height = 180
+  Talkies.height = 175
   Talkies.messageBackgroundColor = {0, 0, 0, 0}
   Talkies.messageColor = {0, 0, 0}
   Talkies.titleBackgroundColor = {0, 0, 0, 0.8}
@@ -31,7 +31,7 @@ function love.keypressed(key)
     testStrings = {
       "Hi! Welcome to the game.",
       "I hope you make yourself comfortable.",
-      "Maybe get some snacks. I hear those ranch chips are banger."
+      "Maybe get some snacks. I hear those ranch chips are banger. I'll write some more text here, just so you can see how much really fits in this box. That's how much I like you. Sooooo much. So much that I'll write some more text."
     }
     Talkies.say("Title", testStrings)
   end

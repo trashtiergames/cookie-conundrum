@@ -12,12 +12,6 @@ function love.load()
   gStateStack = StateStack()
   gStateStack:push(TitleState())
 
-  gBackgrounds = {
-    ["sams_room"] = love.graphics.newImage("art/sams_room.png")
-  }
-
-  gCurrentBackground = gBackgrounds["sams_room"]
-
   love.keyboard.keysPressed = {}
 
   Talkies.font = love.graphics.newFont("font/open_sans.ttf", 40)
@@ -34,7 +28,12 @@ function love.keypressed(key)
   end
 
   if key == "t" then
-    Talkies.say("Title", "")
+    testStrings = {
+      "Hi! Welcome to the game.",
+      "I hope you make yourself comfortable.",
+      "Maybe get some snacks. I hear those ranch chips are banger."
+    }
+    Talkies.say("Title", testStrings)
   end
 
   if key == "space" then Talkies.onAction()
@@ -51,15 +50,13 @@ function love.keyboard.wasPressed(key)
 end
 
 function love.update(dt)
-  Talkies.update(dt)
   gStateStack:update()
+  Talkies.update(dt)
   
   love.keyboard.keysPressed = {}
 end
 
 function love.draw()
-  
-  love.graphics.draw(gCurrentBackground, 0, 0)
-  Talkies.draw()
   gStateStack:render()
+  Talkies.draw()
 end

@@ -18,6 +18,7 @@ end
 function TitleState:update()
   if love.keyboard.wasPressed("s") then
     gStateStack:pop()
+    gStateStack:push(PlayState())
   end
 end
 

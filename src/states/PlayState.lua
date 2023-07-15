@@ -25,6 +25,15 @@ function PlayState:enter()
   }
   self.currentBackground = self.backgrounds.darkness
   Talkies.say("???", dialogues, {messageColor = {1, 1, 1, 1}})
+  self.buttons = {
+    Button("move", 1),
+    Button("talk", 2),
+    Button("investigate", 3),
+    Button("evidence", 4)
+  }
+  for i, button in pairs(self.buttons) do
+    button.show = false
+  end
 end
 
 function PlayState:exit()
@@ -35,4 +44,7 @@ end
 
 function PlayState:render()
   love.graphics.draw(self.currentBackground, 0, 0)
+  for i, button in pairs(self.buttons) do
+    button:draw()
+  end
 end

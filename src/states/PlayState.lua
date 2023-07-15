@@ -24,7 +24,23 @@ function PlayState:enter()
     "CRUNCH CRUNCH CRUNCH"
   }
   self.currentBackground = self.backgrounds.darkness
-  Talkies.say("???", dialogues, {messageColor = {1, 1, 1, 1}})
+  options = {
+    messageColor = {1, 1, 1, 1},
+    oncomplete = function(dialog)
+      self.currentBackground = self.backgrounds.sams_room
+      for i, button in pairs(self.buttons) do
+        button.show = true
+      end
+      Talkies.say("Sam", {
+        "*yawn*",
+        "Oh? Did I fall asleep like this yesterday?",
+        "I left those cookies out to cool yesterday, I should really put them away before anything happens to them.",
+        "I should MOVE to the kitchen."
+      })
+    end
+  }
+  
+  Talkies.say("???", dialogues, options)
   self.buttons = {
     Button("move", 1),
     Button("talk", 2),

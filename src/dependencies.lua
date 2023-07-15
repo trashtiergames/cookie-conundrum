@@ -3,6 +3,7 @@ json = require "libraries/json"
 anim8 = require "libraries/anim8"
 Talkies = require "libraries/talkies"
 
+require "src/Location"
 require "src/Button"
 
 require "src/StateStack"

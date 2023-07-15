@@ -4,12 +4,12 @@ PlayState = Class{__includes = BaseState}
 
 function PlayState:init()
   self.backgrounds = {
-    ["sams_room"] = love.graphics.newImage("art/sams_room.png"),
-    ["kitchen"] = love.graphics.newImage("art/kitchen.png"),
-    ["emilias_door"] = love.graphics.newImage("art/emilias_door.png"),
-    ["aprils_door"] = love.graphics.newImage("art/aprils_door.png"),
-    ["balcony"] = love.graphics.newImage("art/balcony.png"),
-    ["darkness"] = love.graphics.newImage("art/darkness.png")
+    ["sams_room"] = love.graphics.newImage("art/bg/sams_room.png"),
+    ["kitchen"] = love.graphics.newImage("art/bg/kitchen.png"),
+    ["emilias_door"] = love.graphics.newImage("art/bg/emilias_door.png"),
+    ["aprils_door"] = love.graphics.newImage("art/bg/aprils_door.png"),
+    ["balcony"] = love.graphics.newImage("art/bg/balcony.png"),
+    ["darkness"] = love.graphics.newImage("art/bg/darkness.png")
   }
 end
 

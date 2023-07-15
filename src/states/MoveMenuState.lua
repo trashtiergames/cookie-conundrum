@@ -7,9 +7,11 @@ function MoveMenuState:init()
 end
 
 function MoveMenuState:enter()
+  
 end
 
 function MoveMenuState:exit()
+
 end
 
 function MoveMenuState:update()

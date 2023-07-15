@@ -14,7 +14,7 @@ function love.load()
 
   love.keyboard.keysPressed = {}
 
-  Talkies.font = love.graphics.newFont("font/open_sans.ttf", 40)
+  Talkies.font = love.graphics.newFont("font/quicksand.ttf", 40)
   Talkies.height = 175
   Talkies.messageBackgroundColor = {0, 0, 0, 0}
   Talkies.messageColor = {0, 0, 0}

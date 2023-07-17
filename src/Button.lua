@@ -12,15 +12,15 @@ function Button:init(type, position)
     self.show = true
 
     if self.type == "move" then
-        self.img_path = "art/buttons/Move_Button.png"
+        self.img_path = "art/ui/Move_Button.png"
     elseif self.type == "investigate" then
-        self.img_path = "art/buttons/Investigate_Button.png"
+        self.img_path = "art/ui/Investigate_Button.png"
     elseif self.type == "present" then
-        self.img_path = "art/buttons/Present_Button.png"
+        self.img_path = "art/ui/Present_Button.png"
     elseif self.type == "talk" then
-        self.img_path = "art/buttons/Talk_Button.png"
+        self.img_path = "art/ui/Talk_Button.png"
     elseif self.type == "evidence" then
-        self.img_path = "art/buttons/Evidence_Button.png"
+        self.img_path = "art/ui/Evidence_Button.png"
     end
     self.img = love.graphics.newImage(self.img_path)
 end

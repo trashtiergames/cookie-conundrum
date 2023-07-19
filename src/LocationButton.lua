@@ -31,6 +31,32 @@ function LocationButton:init(position, location)
 	self.show = true
 	self.onClick = function() end
 
+	if self.name == "Sam's Room" then
+		self.onClick = function() 
+			currentLocation = locations["sams_room"]
+			gStateStack:pop()
+		end
+	elseif self.name == "Kitchen" then
+		self.onClick = function()
+			currentLocation = locations["kitchen"]
+			gStateStack:pop()
+		end
+	elseif self.name == "April's Door" then
+		self.onClick = function()
+			currentLocation = locations["aprils_door"]
+			gStateStack:pop()
+		end
+	elseif self.name == "Emilia's Door" then
+		self.onClick = function()
+			currentLocation = locations["emilias_door"]
+			gStateStack:pop()
+		end
+	elseif self.name == "Balcony" then
+		self.onClick = function()
+			currentLocation = locations["balcony"]
+			gStateStack:pop()
+		end
+	end
 end
 
 function LocationButton:update(dt) 

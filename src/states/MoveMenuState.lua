@@ -18,14 +18,43 @@ function MoveMenuState:init()
 end
 
 function MoveMenuState:enter()
+  if currentLocation.name == "Sam's Room" then
+    self.locationButtons = {
+      LocationButton(1, locations["kitchen"])
+    }
+  elseif currentLocation.name == "Kitchen" then
+    self.locationButtons = {
+      LocationButton(1, locations["sams_room"]),
+      LocationButton(2, locations["aprils_door"]),
+      LocationButton(3, locations["emilias_door"]),
+      LocationButton(4, locations["balcony"])
+    }
+  elseif currentLocation.name == "April's Door" then
+    self.locationButtons = {
+      LocationButton(1, locations["kitchen"]),
+      LocationButton(3, locations["emilias_door"])
+    }
+  elseif currentLocation.name == "Emilia's Door" then
+    self.locationButtons = {
+      LocationButton(1, locations["kitchen"]),
+      LocationButton(2, locations["aprils_door"])
+    }
+  elseif currentLocation.name == "Balcony" then
+    self.locationButtons = {
+      LocationButton(1, locations["kitchen"])
+    }
+  end
 end
 
 function MoveMenuState:exit()
 
 end
 
-function MoveMenuState:update()
+function MoveMenuState:update(dt)
   self.cancelButton:update()
+  for _, btn in pairs(self.locationButtons) do
+    btn:update()
+  end
 end
 
 function MoveMenuState:render()

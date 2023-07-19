@@ -15,7 +15,6 @@ function ActionButton:init(type, position)
 	if self.type == "move" then
 		self.img_path = "art/ui/Move_Button.png"
 		self.onClick = function()
-			print("clicked move button")
 			gStateStack:push(MoveMenuState())
 		end
 	elseif self.type == "investigate" then

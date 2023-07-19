@@ -3,9 +3,9 @@
 PlayState = Class{__includes = BaseState}
 
 function PlayState:init()
-  self.locations = {
+  locations = {
     ["sams_room"] =     Location("Sam's Room",    "art/bg/sams_room.png", {}),
-    ["kitchen"] =       Location("Sam's Room",    "art/bg/kitchen.png", {}),
+    ["kitchen"] =       Location("Kitchen",    "art/bg/kitchen.png", {}),
     ["emilias_door"] =  Location("Emilia's Door", "art/bg/emilias_door.png", {}),
     ["aprils_door"] =   Location("April's Door",  "art/bg/aprils_door.png", {}),
     ["balcony"] =       Location("Balcony",       "art/bg/balcony.png", {}),
@@ -23,11 +23,11 @@ function PlayState:enter()
     "crunch crunch crunch",
     "CRUNCH CRUNCH CRUNCH"
   }
-  self.currentLocation = self.locations.darkness
+  self.currentLocation = locations.darkness
   options = {
     messageColor = {1, 1, 1, 1},
     oncomplete = function(dialog)
-      self.currentLocation = self.locations.sams_room
+      self.currentLocation = locations.sams_room
       for i, button in pairs(self.buttons) do
         button.show = true
       end
@@ -42,10 +42,10 @@ function PlayState:enter()
   
   Talkies.say("???", dialogues, options)
   self.buttons = {
-    Button("move", 1),
-    Button("talk", 2),
-    Button("investigate", 3),
-    Button("evidence", 4)
+    ActionButton("move", 1),
+    ActionButton("talk", 2),
+    ActionButton("investigate", 3),
+    ActionButton("evidence", 4)
   }
   for i, button in pairs(self.buttons) do
     button.show = false
@@ -56,6 +56,9 @@ function PlayState:exit()
 end
 
 function PlayState:update()
+  for _, button in pairs(self.buttons) do
+    button:update()
+  end
 end
 
 function PlayState:render()

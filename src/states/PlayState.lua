@@ -3,14 +3,6 @@
 PlayState = Class{__includes = BaseState}
 
 function PlayState:init()
-  locations = {
-    ["sams_room"] =     Location("Sam's Room",    "art/bg/sams_room.png", {}),
-    ["kitchen"] =       Location("Kitchen",    "art/bg/kitchen.png", {}),
-    ["emilias_door"] =  Location("Emilia's Door", "art/bg/emilias_door.png", {}),
-    ["aprils_door"] =   Location("April's Door",  "art/bg/aprils_door.png", {}),
-    ["balcony"] =       Location("Balcony",       "art/bg/balcony.png", {}),
-    ["darkness"] =      Location("Darkness",      "art/bg/darkness.png", {})
-  }
 end
 
 function PlayState:enter()
@@ -23,11 +15,11 @@ function PlayState:enter()
     "crunch crunch crunch",
     "CRUNCH CRUNCH CRUNCH"
   }
-  self.currentLocation = locations.darkness
+  
   options = {
     messageColor = {1, 1, 1, 1},
     oncomplete = function(dialog)
-      self.currentLocation = locations.sams_room
+      currentLocation = locations.sams_room
       for i, button in pairs(self.buttons) do
         button.show = true
       end
@@ -62,7 +54,7 @@ function PlayState:update()
 end
 
 function PlayState:render()
-  self.currentLocation:draw()
+  currentLocation:draw()
   for i, button in pairs(self.buttons) do
     button:draw()
   end

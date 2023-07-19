@@ -49,12 +49,7 @@ function love.keypressed(key)
     }
     Talkies.say("Title", testStrings)
   end
-
-  if key == "space" then Talkies.onAction()
-  elseif key == "up" then Talkies.prevOption()
-  elseif key == "down" then Talkies.nextOption()
-  end
-
+  
   love.keyboard.keysPressed[key] = true
 end
 
@@ -72,14 +67,11 @@ function love.mouse.wasPressed(btn)
 end
 
 function love.update(dt)
-  gStateStack:update()
-  Talkies.update(dt)
-  
+  gStateStack:update(dt)
   love.keyboard.keysPressed = {}
   love.mouse.btnsPressed = {}
 end
 
 function love.draw()
   gStateStack:render()
-  Talkies.draw()
 end

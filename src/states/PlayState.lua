@@ -47,10 +47,16 @@ end
 function PlayState:exit()
 end
 
-function PlayState:update()
+function PlayState:update(dt)
   for _, button in pairs(self.buttons) do
     button:update()
   end
+
+  if love.keyboard.wasPressed("space") then Talkies.onAction()
+  elseif love.keyboard.wasPressed("up") then Talkies.prevOption()
+  elseif love.keyboard.wasPressed("down") then Talkies.nextOption()
+  end
+  Talkies.update(dt)
 end
 
 function PlayState:render()
@@ -58,4 +64,5 @@ function PlayState:render()
   for i, button in pairs(self.buttons) do
     button:draw()
   end
+  Talkies.draw()
 end

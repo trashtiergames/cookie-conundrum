@@ -22,6 +22,6 @@ function TitleState:update()
   end
 end
 
-function TitleState:render()
+function TitleState:draw()
   love.graphics.draw(self.titleImage, 0, 0)
 end

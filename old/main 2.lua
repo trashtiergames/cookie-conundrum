@@ -82,6 +82,6 @@ end
 
 function love.draw()
   push:start()
-  stateStacc:render()
+  stateStacc:draw()
   push:finish()
 end

@@ -17,9 +17,9 @@ function StateStack:update(dt)
   end
 end
 
-function StateStack:render()
+function StateStack:draw()
   for i, state in ipairs(self.states) do
-    state:render()
+    state:draw()
   end
 end
 

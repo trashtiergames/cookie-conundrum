@@ -57,7 +57,7 @@ function MoveMenuState:update(dt)
   end
 end
 
-function MoveMenuState:render()
+function MoveMenuState:draw()
   love.graphics.draw(self.img, self.x, self.y)
   self.cancelButton:draw()
   for _, btn in pairs(self.locationButtons) do

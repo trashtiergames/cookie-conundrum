@@ -9,7 +9,7 @@ StateMachine = Class{}
 
 function StateMachine:init(states)
 	self.empty = {
-		render = function() end,
+		draw = function() end,
 		update = function() end,
 		enter = function() end,
 		exit = function() end
@@ -31,6 +31,6 @@ function StateMachine:update(dt)
 	self.current:update(dt)
 end
 
-function StateMachine:render()
-	self.current:render()
+function StateMachine:draw()
+	self.current:draw()
 end

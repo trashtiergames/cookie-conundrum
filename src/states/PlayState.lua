@@ -3,6 +3,9 @@
 PlayState = Class{__includes = BaseState}
 
 function PlayState:init()
+  self.flags = {
+    crime_scene_discovered = false
+  }
 end
 
 function PlayState:enter()
@@ -22,6 +25,13 @@ function PlayState:update(dt)
     if button.show then
       button:update()
     end
+  end
+  if currentLocation.name == "Kitchen" 
+      and not self.flags.crime_scene_discovered then
+    self.flags.crime_scene_discovered = true
+    gStateStack:push(PieceChainState({
+      p_disc
+    }))
   end
 end
 

@@ -9,5 +9,6 @@ end
 
 function MovePieceState:enter()
   currentLocation = locations[self.locationName]
+  currentLocation:visit()
   self.done = true
 end

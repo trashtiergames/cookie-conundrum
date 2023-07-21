@@ -26,3 +26,15 @@ p_wake = TextPieceState(
   }
 )
 
+p_disc = TextPieceState(
+  "Sam",
+  {
+    "What the-- FUCK???",
+    "What happened to my cookies??",
+    ". -- . -- .",
+    "Jesus, they're basically all gone.",
+    "There was nobody else here over night, at least as far as I know...",
+    "So either April or Em must have helped themselves to a little late night snack.",
+    "I should probably INVESTIGATE a little bit and then go and TALK to April and Em at their doors.",
+  }
+)

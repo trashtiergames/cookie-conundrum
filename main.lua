@@ -3,14 +3,22 @@
 require "src/dependencies"
 
 function love.load()
+  -- Initialize system stuff
   math.randomseed(os.time())
   testTimer = 0
   testTimerMax = 1
+  love.keyboard.keysPressed = {}
+  quicksandSmall = love.graphics.newFont("font/quicksand.ttf", 20)
+
+  -- Prepare state stack
+  gStateStack = StateStack()
+  gStateStack:push(TitleState())
 
   -- Prepare window
   love.window.setTitle("Cookie Conundrum")
   love.window.setMode(1280, 720, {fullscreen=false})
 
+  -- Initialize locations
   locations = {
     ["sams_room"] =     Location("Sam's Room",    "art/bg/sams_room.png", {}),
     ["kitchen"] =       Location("Kitchen",    "art/bg/kitchen.png", {}),
@@ -19,23 +27,7 @@ function love.load()
     ["balcony"] =       Location("Balcony",       "art/bg/balcony.png", {}),
     ["darkness"] =      Location("Darkness",      "art/bg/darkness.png", {})
   }
-
   currentLocation = locations.darkness
-
-  gStateStack = StateStack()
-  gStateStack:push(TitleState())
-
-  love.keyboard.keysPressed = {}
-
-  quicksandSmall = love.graphics.newFont("font/quicksand.ttf", 20)
-
-  Talkies.font = love.graphics.newFont("font/quicksand.ttf", 40)
-  Talkies.height = 175
-  Talkies.messageBackgroundColor = {0, 0, 0, 0}
-  Talkies.messageColor = {0, 0, 0}
-  Talkies.titleBackgroundColor = {0, 0, 0, 0.8}
-  Talkies.titleBorderColor = {0, 0, 0, 1}
-
 
   -- Initialize buttons
   actionButtons = {
@@ -48,6 +40,14 @@ function love.load()
   for i, button in pairs(actionButtons) do
     button.show = false
   end
+
+  -- Configure dialogue library
+  Talkies.font = love.graphics.newFont("font/quicksand.ttf", 40)
+  Talkies.height = 175
+  Talkies.messageBackgroundColor = {0, 0, 0, 0}
+  Talkies.messageColor = {0, 0, 0}
+  Talkies.titleBackgroundColor = {0, 0, 0, 0.8}
+  Talkies.titleBorderColor = {0, 0, 0, 1}
 end
 
 function love.keypressed(key)

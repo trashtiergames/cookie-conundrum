@@ -4,11 +4,12 @@ require "src/dependencies"
 
 function love.load()
   math.randomseed(os.time())
+  testTimer = 0
+  testTimerMax = 1
 
   -- Prepare window
   love.window.setTitle("Cookie Conundrum")
   love.window.setMode(1280, 720, {fullscreen=false})
-
 
   locations = {
     ["sams_room"] =     Location("Sam's Room",    "art/bg/sams_room.png", {}),
@@ -34,6 +35,19 @@ function love.load()
   Talkies.messageColor = {0, 0, 0}
   Talkies.titleBackgroundColor = {0, 0, 0, 0.8}
   Talkies.titleBorderColor = {0, 0, 0, 1}
+
+
+  -- Initialize buttons
+  actionButtons = {
+    ActionButton("move", 1),
+    ActionButton("talk", 2),
+    ActionButton("investigate", 3),
+    ActionButton("evidence", 4)
+  }
+
+  for i, button in pairs(actionButtons) do
+    button.show = false
+  end
 end
 
 function love.keypressed(key)
@@ -42,12 +56,14 @@ function love.keypressed(key)
   end
 
   if key == "t" then
-    testStrings = {
-      "Hi! Welcome to the game.",
-      "I hope you make yourself comfortable.",
-      "Maybe get some snacks. I hear those ranch chips are banger. I'll write some more text here, just so you can see how much really fits in this box. That's how much I like you. Sooooo much. So much that I'll write some more text."
-    }
-    Talkies.say("Title", testStrings)
+    -- testStrings = {
+    --   "Hi! Welcome to the game.",
+    --   "I hope you make yourself comfortable.",
+    --   "Maybe get some snacks. I hear those ranch chips are banger. I'll write some more text here, just so you can see how much really fits in this box. That's how much I like you. Sooooo much. So much that I'll write some more text."
+    -- }
+    -- testDiag = Talkies.say("Title", testStrings)
+    -- print("testDiag say statement created")
+    -- print("testDiag shown status is " .. tostring(testDiag:isShown()))
   end
   
   love.keyboard.keysPressed[key] = true
@@ -73,5 +89,5 @@ function love.update(dt)
 end
 
 function love.draw()
-  gStateStack:render()
+  gStateStack:draw()
 end

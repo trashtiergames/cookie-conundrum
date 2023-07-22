@@ -25,5 +25,6 @@ require "src/states/PieceState"
 require "src/states/TextPieceState"
 require "src/states/MovePieceState"
 require "src/states/ToggleBtnPieceState"
+require "src/states/EviPieceState"
 
 require "src/script"

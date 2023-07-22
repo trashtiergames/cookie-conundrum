@@ -32,7 +32,7 @@ function Clickable:draw()
   end
 end
 
-function Clickable:onclick()
+function Clickable:onClick()
   if self.consumable then
     self.consumed = true
   end

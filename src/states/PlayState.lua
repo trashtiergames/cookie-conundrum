@@ -33,6 +33,7 @@ function PlayState:update(dt)
       p_disc
     }))
   end
+  currentLocation:update(dt)
 end
 
 function PlayState:draw()

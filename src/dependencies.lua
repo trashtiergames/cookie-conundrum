@@ -28,3 +28,4 @@ require "src/states/ToggleBtnPieceState"
 require "src/states/EviPieceState"
 
 require "src/script"
+require "src/locations"

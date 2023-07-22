@@ -38,3 +38,11 @@ p_disc = TextPieceState(
     "I should probably INVESTIGATE a little bit and then go and TALK to April and Em at their doors.",
   }
 )
+
+p_test = TextPieceState(
+  "Sam",
+  {
+    "Wow! I did a test!",
+    "Appears that there is an item hidden behind this beautiful painting."
+  }
+)

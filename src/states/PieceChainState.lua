@@ -6,6 +6,9 @@ function PieceChainState:init(pieces)
   self.pieces = pieces
   self.index = 1
   self.done = false
+end
+
+function PieceChainState:enter()
   if #self.pieces < 1 then
     print("No pieces in PieceChainState. Popping.")
     gStateStack:pop()

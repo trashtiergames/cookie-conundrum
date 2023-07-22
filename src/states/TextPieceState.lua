@@ -23,9 +23,6 @@ function TextPieceState:update(dt)
   if not self.dialogue:isShown() then 
     self.done = true
   end
-  if self.done == true then
-  end
-
 end
 
 function TextPieceState:draw()

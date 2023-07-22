@@ -9,13 +9,14 @@ function EviPieceState:init(message, name, description, imgPath)
   self.description = description
   self.img = love.graphics.newImage(imgPath)
   self.iconSide = 165
-  self.iconPad = 10
+  self.iconPad = 5
   self.iconX = 1280 - self.iconSide - (2 * self.iconPad)
   self.iconY = 720 - self.iconSide - (2 * self.iconPad)
 end
 
 function EviPieceState:enter()
-  Talkies.say("Sam", message)
+  Talkies.clearMessages()
+  self.dialogue = Talkies.say("Sam", self.message)
   table.insert(inventory, Evidence(name, description, imgPath))
 end
 

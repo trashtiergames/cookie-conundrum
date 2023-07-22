@@ -19,6 +19,17 @@ locations = {
             "art/Placeholder_Evidence_Icon.png"
           )
         })
+      ),
+      Clickable(
+        "getTestDialogue",
+        300,
+        300,
+        100,
+        100,
+        false,
+        PieceChainState({
+          p_ttest
+        })
       )
     }
   ),

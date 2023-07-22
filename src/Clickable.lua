@@ -36,5 +36,5 @@ function Clickable:onClick()
   if self.consumable then
     self.consumed = true
   end
-  gStateStack:push(self.pieceChainState)
+  gStateStack:push(copyTable(self.pieceChainState))
 end

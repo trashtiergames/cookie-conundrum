@@ -46,3 +46,10 @@ p_test = TextPieceState(
     "Appears that there is an item hidden behind this beautiful painting."
   }
 )
+
+p_ttest = TextPieceState(
+  "Sam",
+  {
+    "Wow! You clicked a button HOLY SHIT!"
+  }
+)

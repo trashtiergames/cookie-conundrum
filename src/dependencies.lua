@@ -5,6 +5,8 @@ Talkies = require "libraries/talkies"
 require "src/helpers"
 
 require "src/Clickable"
+require "src/Evidence"
+
 require "src/Location"
 require "src/LocationButton"
 require "src/ActionButton"

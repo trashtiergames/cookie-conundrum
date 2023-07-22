@@ -41,6 +41,9 @@ function love.load()
     button.show = false
   end
 
+  -- Initialize inventory
+  inventory = {}
+
   -- Configure dialogue library
   Talkies.font = love.graphics.newFont("font/quicksand.ttf", 40)
   Talkies.height = 175

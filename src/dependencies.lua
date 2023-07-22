@@ -4,6 +4,7 @@ anim8 = require "libraries/anim8"
 Talkies = require "libraries/talkies"
 require "src/helpers"
 
+require "src/Clickable"
 require "src/Location"
 require "src/LocationButton"
 require "src/ActionButton"

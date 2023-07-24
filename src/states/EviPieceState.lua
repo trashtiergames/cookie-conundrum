@@ -17,7 +17,7 @@ end
 function EviPieceState:enter()
   Talkies.clearMessages()
   self.dialogue = Talkies.say("Sam", self.message)
-  table.insert(inventory, Evidence(name, description, imgPath))
+  table.insert(inventory, Evidence(self.name, self.description, self.img))
 end
 
 function EviPieceState:update(dt)

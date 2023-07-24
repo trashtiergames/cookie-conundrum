@@ -61,6 +61,13 @@ function love.keypressed(key)
     -- print("testDiag say statement created")
     -- print("testDiag shown status is " .. tostring(testDiag:isShown()))
   end
+
+  if key == "i" then
+    print("Current inventory:")
+    for _, piece in pairs(inventory) do
+      print(piece.name)
+    end
+  end
   
   love.keyboard.keysPressed[key] = true
 end

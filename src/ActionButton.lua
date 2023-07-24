@@ -19,6 +19,9 @@ function ActionButton:init(type, position)
 		end
 	elseif self.type == "investigate" then
 		self.img_path = "art/ui/Investigate_Button.png"
+		self.onClick = function()
+			gStateStack:push(InvestigateState())
+		end
 	elseif self.type == "present" then
 		self.img_path = "art/ui/Present_Button.png"
 	elseif self.type == "talk" then

@@ -19,6 +19,7 @@ require "src/states/BaseState"
 require "src/states/TitleState"
 require "src/states/PlayState"
 require "src/states/MoveMenuState"
+require "src/states/InvestigateState"
 
 require "src/states/PieceChainState"
 require "src/states/PieceState"

@@ -10,6 +10,7 @@ end
 function Location:update(dt) 
   click = love.mouse.wasPressed(1)
   if click and click.x then
+    gStateStack:pop()
     local iToRemove = nil
     for i, clickable in ipairs(self.clickables) do
       if clickInside(click, clickable) then

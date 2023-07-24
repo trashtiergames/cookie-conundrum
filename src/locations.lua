@@ -15,7 +15,7 @@ locations = {
           EviPieceState(
             "It's a flower.",
             "Flower",
-            "Definitely not evil",
+            "Definitely not evil. Just a really nice flower that was hidden behind a painting.",
             "art/Placeholder_Evidence_Icon.png"
           )
         })

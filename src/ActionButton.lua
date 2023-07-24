@@ -28,6 +28,9 @@ function ActionButton:init(type, position)
 		self.img_path = "art/ui/Talk_Button.png"
 	elseif self.type == "evidence" then
 		self.img_path = "art/ui/Evidence_Button.png"
+		self.onClick = function()
+			gStateStack:push(EviMenuState())
+		end
 	end
 	self.img = love.graphics.newImage(self.img_path)
 end

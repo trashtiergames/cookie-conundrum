@@ -9,6 +9,7 @@ function love.load()
   testTimerMax = 1
   love.keyboard.keysPressed = {}
   quicksandSmall = love.graphics.newFont("font/quicksand.ttf", 20)
+  quicksandMedium = love.graphics.newFont("font/quicksand.ttf", 40)
 
   -- Prepare state stack
   gStateStack = StateStack()
@@ -38,7 +39,7 @@ function love.load()
   inventory = {}
 
   -- Configure dialogue library
-  Talkies.font = love.graphics.newFont("font/quicksand.ttf", 40)
+  Talkies.font = quicksandMedium
   Talkies.height = 175
   Talkies.messageBackgroundColor = {0, 0, 0, 0}
   Talkies.messageColor = {0, 0, 0}

@@ -6,6 +6,8 @@ function Evidence:init(name, description, img)
   self.name = name
   self.description = description
   self.img = img
+  self.w = 165
+  self.h = 165
 end
 
 function Evidence:update(dt) 

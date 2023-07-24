@@ -6,6 +6,7 @@ require "src/helpers"
 
 require "src/Clickable"
 require "src/Evidence"
+require "src/EviContainer"
 
 require "src/Location"
 require "src/LocationButton"
@@ -19,6 +20,7 @@ require "src/states/BaseState"
 require "src/states/TitleState"
 require "src/states/PlayState"
 require "src/states/MoveMenuState"
+require "src/states/EviMenuState"
 require "src/states/InvestigateState"
 
 require "src/states/PieceChainState"

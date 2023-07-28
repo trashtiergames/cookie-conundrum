@@ -23,3 +23,17 @@ function copyTable(obj, seen)
   for k, v in pairs(obj) do res[copyTable(k, s)] = copyTable(v, s) end
   return res
 end
+
+toggleButtonPieceState = FunctionPieceState(
+  function()
+    for _, button in pairs(actionButtons) do
+      button.show = not button.show
+    end
+  end
+)
+
+toggleTextboxPieceState = FunctionPieceState(
+  function()
+    textbox.show = not textbox.show
+  end
+)

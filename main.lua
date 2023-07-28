@@ -21,7 +21,6 @@ function love.load()
   love.window.setMode(1280, 720, {fullscreen=false})
 
   -- Initialize location
-  
   currentLocation = locations.darkness
 
   -- Initialize buttons

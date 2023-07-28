@@ -6,14 +6,16 @@ function PlayState:init()
   self.flags = {
     crime_scene_discovered = false
   }
+  textbox = Textbox()
 end
 
 function PlayState:enter()
   gStateStack:push(PieceChainState({
     p_night,
     p_samsr,
+    toggleTextboxPieceState,
     p_wake,
-    ToggleBtnPieceState()
+    toggleButtonPieceState
   }))
 end
 
@@ -37,6 +39,7 @@ end
 
 function PlayState:draw()
   currentLocation:draw()
+  textbox:draw()
   for i, button in pairs(actionButtons) do
     button:draw()
   end

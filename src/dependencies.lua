@@ -33,4 +33,5 @@ require "src/states/EviPieceState"
 
 require "src/script"
 require "src/emilia"
+require "src/april"
 require "src/locations"

@@ -35,7 +35,7 @@ locations = {
   ),
   ["kitchen"] =       Location("Kitchen",    "art/bg/kitchen.png", {}),
   ["emilias_door"] =  Location("Emilia's Door", "art/bg/emilias_door.png", {}, {emilia}),
-  ["aprils_door"] =   Location("April's Door",  "art/bg/aprils_door.png", {}),
+  ["aprils_door"] =   Location("April's Door",  "art/bg/aprils_door.png", {}, {april}),
   ["balcony"] =       Location("Balcony",       "art/bg/balcony.png", {}),
   ["darkness"] =      Location("Darkness",      "art/bg/darkness.png", {})
 }

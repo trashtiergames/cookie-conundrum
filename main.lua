@@ -9,6 +9,7 @@ function love.load()
   testTimerMax = 1
   love.keyboard.keysPressed = {}
   quicksandSmall = love.graphics.newFont("font/quicksand.ttf", 20)
+  quicksandMenu = love.graphics.newFont("font/quicksand.ttf", 32)
   quicksandMedium = love.graphics.newFont("font/quicksand.ttf", 40)
 
   -- Prepare state stack

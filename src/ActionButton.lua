@@ -29,11 +29,13 @@ function ActionButton:init(type, position)
 		self.onClick = function()
 			if currentLocation.characters then
 				if #currentLocation.characters == 1 then
+					local menuOptions = currentLocation.characters[1].dialOptions
+					local charName = currentLocation.characters[1].name
 					gStateStack:push(PieceChainState({
 							TextPieceState(
-								"Sam",
-								"Let's talk about...",
-								{options = currentLocation.characters[1].dialOptions}
+								"Talk to " .. charName,
+								"Choose a topic to talk about:",
+								{options = menuOptions, font = quicksandMenu}
 							)
 					}))
 				end

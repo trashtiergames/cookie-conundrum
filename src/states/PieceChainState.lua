@@ -3,14 +3,14 @@
 PieceChainState = Class{__includes = BaseState}
 
 function PieceChainState:init(pieces)
-  self.pieces = pieces
+  self.pieces = copyTable(pieces)
   self.index = 1
   self.done = false
 end
 
 function PieceChainState:enter()
   if #self.pieces < 1 then
-    print("No pieces in PieceChainState. Popping.")
+    print("No pieces in PieceChainState. Popping ᕕ( ᐛ )ᕗ")
     gStateStack:pop()
   else
     self.pieces[self.index]:enter()
@@ -23,12 +23,15 @@ function PieceChainState:update(dt)
     if self.done then
       return
     end
+  else
+    self.pieces[self.index]:update(dt)
   end
-  self.pieces[self.index]:update(dt)
 end
 
 function PieceChainState:draw()
-  self.pieces[self.index]:draw()
+  if not self.pieces[self.index].done then
+    self.pieces[self.index]:draw()
+  end
 end
 
 function PieceChainState:nextPiece()

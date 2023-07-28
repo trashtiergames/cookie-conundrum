@@ -26,6 +26,19 @@ function ActionButton:init(type, position)
 		self.img_path = "art/ui/Present_Button.png"
 	elseif self.type == "talk" then
 		self.img_path = "art/ui/Talk_Button.png"
+		self.onClick = function()
+			if currentLocation.characters then
+				if #currentLocation.characters == 1 then
+					gStateStack:push(PieceChainState({
+							TextPieceState(
+								"Sam",
+								"Let's talk about...",
+								{options = currentLocation.characters[1].dialOptions}
+							)
+					}))
+				end
+			end
+		end
 	elseif self.type == "evidence" then
 		self.img_path = "art/ui/Evidence_Button.png"
 		self.onClick = function()

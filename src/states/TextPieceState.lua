@@ -10,7 +10,7 @@ function TextPieceState:init(title, messages, config)
 end
 
 function TextPieceState:enter()
-  Talkies.clearMessages()
+  -- Used to clear messages here, but then I took an arrow to the knee.
   self.dialogue = Talkies.say(self.title, self.messages, self.config)
 end
 
@@ -20,11 +20,16 @@ function TextPieceState:update(dt)
   elseif love.keyboard.wasPressed("down") then Talkies.nextOption()
   end
   Talkies.update(dt)
-  if not self.dialogue:isShown() then 
+  if not self.dialogue:isShown() then
     self.done = true
   end
 end
 
 function TextPieceState:draw()
   Talkies.draw()
+end
+
+function TextPieceState:__tostring()
+  return "This TextPieceState has title " .. self.title .. " and " 
+          .. tostring(#self.messages) .. " messages"
 end

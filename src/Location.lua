@@ -1,9 +1,10 @@
 Location = Class{}
 
-function Location:init(name, img_path, clickables)
+function Location:init(name, img_path, clickables, characters)
   self.name = name
   self.img = love.graphics.newImage(img_path)
   self.visited = false
+  self.characters = characters or nil
   self.clickables = clickables
   self.defaultInvestigateMessage = PieceChainState({
     TextPieceState(

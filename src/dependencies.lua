@@ -4,6 +4,7 @@ anim8 = require "libraries/anim8"
 Talkies = require "libraries/talkies"
 require "src/helpers"
 
+require "src/Character"
 require "src/Clickable"
 require "src/Evidence"
 require "src/EviContainer"
@@ -31,4 +32,5 @@ require "src/states/ToggleBtnPieceState"
 require "src/states/EviPieceState"
 
 require "src/script"
+require "src/emilia"
 require "src/locations"

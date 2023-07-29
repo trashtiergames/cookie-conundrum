@@ -2,12 +2,12 @@ se_hello = TextPieceState(
   "Sam",
   {
     "*knock, knock, knock*",
-    "Hey Emily? Are you awake?",
+    "Hey Em? Are you awake?",
   }
 )
 
 es_sleepy = TextPieceState(
-  "Emily",
+  "Emilia",
   {
     ". -- . -- .",
     "Urgh.. Sam? What do you need so early? Go back to sleep...",

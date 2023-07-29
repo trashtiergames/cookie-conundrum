@@ -1,4 +1,4 @@
--- Display title image, play title theme and listen for game start
+-- Get the narrative rolling and render background and UI stuff
 
 PlayState = Class{__includes = BaseState}
 
@@ -7,6 +7,7 @@ function PlayState:init()
     crime_scene_discovered = false
   }
   textbox = Textbox()
+  healthbar = Healthbar()
 end
 
 function PlayState:enter()
@@ -15,7 +16,8 @@ function PlayState:enter()
     p_samsr,
     toggleTextboxPieceState,
     p_wake,
-    toggleButtonPieceState
+    toggleButtonPieceState,
+    toggleHeartsPieceState
   }))
 end
 
@@ -43,4 +45,5 @@ function PlayState:draw()
   for i, button in pairs(actionButtons) do
     button:draw()
   end
+  healthbar:draw()
 end

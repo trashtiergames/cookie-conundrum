@@ -16,6 +16,7 @@ function EviMenuState:init()
   self.descrLimit = self.w - (2 * self.xPad) - (2 * self.descrPad)
   self.img = love.graphics.newImage("art/ui/Evidence_Menu.png")
   self.cancelButton = CancelButton(self.x + 700, self.y)
+  self.presentButton = PresentButton(self.x + self.w, self.y)
   self.descrToDisplay = "Click on evidence to get a description."
   self.containers = {}
 end
@@ -35,6 +36,7 @@ end
 
 function EviMenuState:update(dt)
   self.cancelButton:update()
+  self.presentButton:update()
   click = love.mouse.wasPressed(1)
   if click and click.x then
     for _, container in pairs(self.containers) do
@@ -48,6 +50,7 @@ end
 function EviMenuState:draw()
   love.graphics.draw(self.img, self.x, self.y)
   self.cancelButton:draw()
+  self.presentButton:draw()
 
   for _, container in pairs(self.containers) do
     container:draw()

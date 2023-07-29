@@ -37,3 +37,9 @@ toggleTextboxPieceState = FunctionPieceState(
     textbox.show = not textbox.show
   end
 )
+
+toggleHeartsPieceState = FunctionPieceState(
+  function()
+    healthbar.show = not healthbar.show
+  end
+)

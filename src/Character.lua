@@ -1,4 +1,4 @@
--- Emily and April
+-- Emilia and April
 
 Character = Class{}
 

@@ -2,11 +2,12 @@
 
 Character = Class{}
 
-function Character:init(name, dialogueOptions)
+function Character:init(name, imgPath, dialogueOptions)
   self.name = name
-  -- self.img = love.graphics.newImage(imgPath)
+  self.img = love.graphics.newImage(imgPath)
   self.dialOptions = dialogueOptions
   self.expectedEvi = ""
+  self.show = false
 end
 
 function Character:update(dt) 
@@ -14,7 +15,7 @@ function Character:update(dt)
 end
 
 function Character:draw()
-  
+  love.graphics.draw(self.img, 0, 0)
 end
 
 function Character:checkGameOver()

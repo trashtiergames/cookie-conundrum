@@ -40,6 +40,13 @@ end
 
 function Location:draw()
   love.graphics.draw(self.img, 0, 0)
+  if self.characters then
+    for _, char in pairs(self.characters) do
+      if char.show then
+        char:draw()
+      end
+    end
+  end
   for _, clickable in pairs(self.clickables) do
     clickable:draw()
   end

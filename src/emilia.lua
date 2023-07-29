@@ -28,8 +28,8 @@ e_crumb = FunctionPieceState(
                 {
                   "What's that? Someone ate your cookies? Ok, let me come out."
                 }
-                -- CONTINUE HERE AND SHOW HER CHARACTER
-              )
+              ),
+              toggleEmiliaShowState
             }))
             char.dialOptions = {
               {
@@ -73,6 +73,7 @@ e_crumb = FunctionPieceState(
 
 emilia = Character(
   "Emilia",
+  "art/characters/emilia.png",
   {
     {"Hello?",
     function() 

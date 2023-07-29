@@ -56,3 +56,14 @@ toggleHeartsPieceState = FunctionPieceState(
   end
 )
 
+toggleEmiliaShowState = FunctionPieceState(
+  function()
+    emilia.show = not emilia.show
+  end
+)
+
+toggleAprilShowState = FunctionPieceState(
+  function()
+    april.show = not april.show
+  end
+)

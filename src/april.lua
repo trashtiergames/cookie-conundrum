@@ -10,6 +10,7 @@ sa_hello = TextPieceState(
 
 april = Character(
   "April",
+  "art/characters/april.png",
   {
     {"Hello?",
     function() 

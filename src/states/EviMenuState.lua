@@ -44,8 +44,16 @@ function EviMenuState:update(dt)
       if clickInside(click, container) then
         self.descrToDisplay = container.evidence.description
         if currentLocation.characters then
-          self.presentButton.show = true
-          self.presentButton.eviName = container.evidence.name
+          local aprilAwake = true
+          for _, char in pairs(currentLocation.characters) do
+            if char.name == "April" and not char.show then
+              aprilAwake = false
+            end
+          end
+          if aprilAwake then
+            self.presentButton.show = true
+            self.presentButton.eviName = container.evidence.name
+          end
         end
       end
     end

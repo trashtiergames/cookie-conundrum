@@ -53,3 +53,17 @@ p_ttest = TextPieceState(
     "Wow! You clicked a button HOLY SHIT!"
   }
 )
+
+p_crumbs = TextPieceState(
+  "Sam",
+  {
+    "I definitely put my whole tray of cookies out to cool here yesterday."
+  }
+)
+
+p_presc = TextPieceState(
+  "Sam",
+  {
+    "I should PRESENT the evidence of the crime to the others."
+  }
+)

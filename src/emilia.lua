@@ -20,12 +20,15 @@ e_crumb = FunctionPieceState(
     for _, char in pairs(currentLocation.characters) do
       if char.name == "Emilia" then
         char:setExpectations(
-          "Flower",
+          "Cookie crumbs",
           function()
             gStateStack:push(PieceChainState({
               TextPieceState(
                 "Emilia",
-                "Omg it's a flower!! Sick bruh."
+                {
+                  "What's that? Someone ate your cookies? Ok, let me come out."
+                }
+                -- CONTINUE HERE AND SHOW HER CHARACTER
               )
             }))
           end

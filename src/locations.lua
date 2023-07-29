@@ -33,7 +33,29 @@ locations = {
       )
     }
   ),
-  ["kitchen"] =       Location("Kitchen",    "art/bg/kitchen.png", {}),
+  ["kitchen"] = Location(
+    "Kitchen",
+    "art/bg/kitchen.png", 
+    {
+      Clickable(
+        "getCrumbz",
+        807,
+        411,
+        350,
+        91,
+        true,
+        PieceChainState({
+          p_crumbs,
+          EviPieceState(
+            "Now, there's only crumbs left...",
+            "Cookie crumbs",
+            "I found these crumbs next to the tray where my cookies were cooling off yesterday.",
+            "art/Placeholder_Evidence_Icon.png"
+          ),
+          p_presc
+        })
+      )
+    }),
   ["emilias_door"] =  Location("Emilia's Door", "art/bg/emilias_door.png", {}, {emilia}),
   ["aprils_door"] =   Location("April's Door",  "art/bg/aprils_door.png", {}, {april}),
   ["balcony"] =       Location("Balcony",       "art/bg/balcony.png", {}),

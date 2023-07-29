@@ -27,6 +27,7 @@ function EviMenuState:enter()
   for _, item in pairs(inventory) do
     contX = contX + self.xPad
     table.insert(self.containers, EviContainer(item, contX, contY))
+    contX = contX + EviContainer.w
   end
 end
 

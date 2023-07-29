@@ -2,11 +2,14 @@
 
 EviContainer = Class{}
 
+EviContainer.w = 165
+EviContainer.h = 165
+
 function EviContainer:init(evidence, x, y)
   self.x = x
   self.y = y
-  self.w = 165
-  self.h = 165
+  self.w = EviContainer.w
+  self.h = EviContainer.h
   self.evidence = evidence
 end
 

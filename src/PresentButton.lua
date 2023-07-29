@@ -17,9 +17,8 @@ function PresentButton:update(dt)
     click = love.mouse.wasPressed(1)
     if click and click.x then
       if clickInside(click, self) then
-        -- TODO
-        print("You clicked the amazing PRESENT bubble. Good job broski.")
-        print("If I had any real job, I would present " .. self.eviName)
+        gStateStack:pop()
+        currentLocation.characters[1]:receiveEvi(self.eviName)
       end
     end
   end 

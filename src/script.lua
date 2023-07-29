@@ -67,3 +67,62 @@ p_presc = TextPieceState(
     "I should PRESENT the evidence of the crime to the others."
   }
 )
+
+-- After presenting crumbs to Emilia
+
+p_ate = TextPieceState(
+  "Sam",
+  {
+    "As you can see, someone inflicted a horrible tragedy upon this shared apartment, and more importantly, my breakfast."
+  }
+)
+
+p_brekki = TextPieceState(
+  "Emilia",
+  {
+    "You were gonna eat cookies for breakfast?"
+  }
+)
+
+p_rlytho = TextPieceState(
+  "Sam",
+  {
+    "Don't interrupt!",
+    "I baked them yesterday evening, you must have heard, and I left them out to cool afterwards. But then I went to my room and feel asleep.",
+    "Did you eat them? Or did you see who ate them?"
+  }
+)
+
+p_noate = TextPieceState(
+  "Emilia",
+  {
+    "No, I didn't even notice you were baking something honestly. I went to bed pretty early because I have to study a ton today.",
+    "Which I will hopefully be getting back to soon.",
+    "I did wake up during the night when April came home drunk, so I think you'll have your prime suspect there."
+  }
+)
+
+p_wakey = FunctionPieceState(
+  function()
+    setTalkOptions("April", {
+      {
+        "Did you eat my cookies?",
+        function() 
+          gStateStack:push(PieceChainState({
+            -- TODO (does it work even though this var is only defined below?)
+            p_hi
+          }))
+        end
+      }
+    })
+  end
+)
+
+-- April's response to accusations (TODO)
+p_hi = TextPieceState(
+  "April",
+  {
+    "Yo good morning.",
+    "This is a test largely, I still have to wake up properly man."
+  }
+)

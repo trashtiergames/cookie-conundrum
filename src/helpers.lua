@@ -12,6 +12,18 @@ function clickInside(click, container)
   end
 end
 
+function setTalkOptions(charName, dialOptions)
+  for _, location in pairs(locations) do
+    if location.characters then
+      for _, char in pairs(location.characters) do
+        if char.name == charName then
+          char.dialOptions = dialOptions
+        end
+      end
+    end
+  end
+end
+
 -- From https://stackoverflow.com/a/26367080
 -- Has certain limitations that I don't think apply to my purposes
 function copyTable(obj, seen)

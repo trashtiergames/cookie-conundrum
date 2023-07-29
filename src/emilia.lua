@@ -31,6 +31,39 @@ e_crumb = FunctionPieceState(
                 -- CONTINUE HERE AND SHOW HER CHARACTER
               )
             }))
+            char.dialOptions = {
+              {
+                "Did you eat my cookies?",
+                function() 
+                  gStateStack:push(PieceChainState({
+                    -- TODO
+                    p_ate,
+                    p_brekki,
+                    p_rlytho,
+                    p_noate,
+                    p_wakey
+                  }))
+                end
+              },
+              {
+                "Yesterday night",
+                function() 
+                  gStateStack:push(PieceChainState({
+                    -- TODO
+                    p_test
+                  }))
+                end
+              },
+              {
+                "Anyone staying over?",
+                function() 
+                  gStateStack:push(PieceChainState({
+                    -- TODO
+                    p_test
+                  }))
+                end
+              }
+            }
           end
         )
       end

@@ -43,3 +43,4 @@ toggleHeartsPieceState = FunctionPieceState(
     healthbar.show = not healthbar.show
   end
 )
+

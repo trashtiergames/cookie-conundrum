@@ -67,8 +67,6 @@ function Character:incorrectEviResponse()
 end
 
 function Character:resetSuccessFunc()
-  -- Does this correctly reset that function to empty?
-  -- Does it take self?
   self.correctEviResponse = function(self) end
 end
 
@@ -84,5 +82,4 @@ end
 function Character:setExpectations(eviName, onCorrectFunc)
   self.expectedEvi = eviName
   self.correctEviResponse = copyTable(onCorrectFunc)
-  print("Expectations set.")
 end

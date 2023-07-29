@@ -15,6 +15,26 @@ es_sleepy = TextPieceState(
   }
 )
 
+e_crumb = FunctionPieceState(
+  function()
+    for _, char in pairs(currentLocation.characters) do
+      if char.name == "Emilia" then
+        char:setExpectations(
+          "Flower",
+          function()
+            gStateStack:push(PieceChainState({
+              TextPieceState(
+                "Emilia",
+                "Omg it's a flower!! Sick bruh."
+              )
+            }))
+          end
+        )
+      end
+    end
+  end
+)
+
 emilia = Character(
   "Emilia",
   {
@@ -22,7 +42,8 @@ emilia = Character(
     function() 
       gStateStack:push(PieceChainState({
         se_hello,
-        es_sleepy
+        es_sleepy,
+        e_crumb
       }))
     end}
   }

@@ -42,6 +42,8 @@ function EviMenuState:update(dt)
     for _, container in pairs(self.containers) do
       if clickInside(click, container) then
         self.descrToDisplay = container.evidence.description
+        self.presentButton.show = true
+        self.presentButton.eviName = container.evidence.name
       end
     end
   end

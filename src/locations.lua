@@ -52,8 +52,26 @@ locations = {
           ),
           p_lipst
         })
+      ),
+      Clickable(
+        510,
+        425,
+        55,
+        70,
+        true,
+        PieceChainState({
+          p_buried,
+          EviPieceState(
+            "It's pretty sternly worded.",
+            "Letter",
+            "A sternly worded rejection letter to a job application.",
+            "art/evidence/Letter.png"
+          )
+        })
       )
-    }),
+    },
+    {}
+  ),
   ["emilias_door"] =  Location("Emilia's Door", "art/bg/emilias_door.png", {}, {emilia}),
   ["aprils_door"] =   Location("April's Door",  "art/bg/aprils_door.png", {}, {april}),
   ["balcony"] =       Location("Balcony",       "art/bg/balcony.png", {

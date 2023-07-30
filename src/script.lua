@@ -92,6 +92,15 @@ p_lipst = TextPieceState(
   }
 )
 
+p_buried = TextPieceState(
+  "Sam",
+  {
+    "It's our paper trash. It's a pretty big stack by now, we should take it out sometime.",
+    "Hold up, there's something that seems to have been stuffed to the bottom of the pile.",
+    "Looks to be some kind of rejection letter to a job application? I don't remember applying for this."
+  }
+)
+
 -- For clickables on Balcony
 p_trash = TextPieceState(
   "Sam",
@@ -336,7 +345,8 @@ a_exbeer = FunctionPieceState(
                   gStateStack:push(PieceChainState({
                     p_see,
                     p_gttp,
-                    p_sound
+                    p_sound,
+                    e_denial
                   }))
                 end
               }
@@ -413,3 +423,137 @@ p_sound = TextPieceState(
   }
 )
 
+-- New options for Emilia
+e_denial = FunctionPieceState(
+  function()
+    emilia.dialOptions  = {
+      {
+        "You cried yesterday?",
+        function()
+          gStateStack:push(PieceChainState({
+            p_cried,
+            p_nocry,
+            p_any,
+            a_extis
+          }))
+        end
+      }
+    }
+  end
+)
+
+p_cried = TextPieceState(
+  "Sam",
+  {
+    "Hey Em. Interesting, April says she did not eat the cookies, but she did hear you cry late at night. You didn't mention that when we were talking earlier!"
+  }
+)
+
+p_nocry = TextPieceState(
+  "Emilia",
+  {
+    "Pfff, sounds to me like April is just trying to shift the blame away from herself. I did not cry yesterday.",
+    "You're seriously suspecting me?"
+  }
+)
+
+p_any = TextPieceState(
+  "Sam",
+  {
+    "It's anyone's game at this point."
+  }
+)
+
+-- Set up Emilia for tissues evidence
+a_extis = FunctionPieceState(
+  function()
+    emilia:setExpectations(
+      "Tissues",
+      function()
+        gStateStack:push(PieceChainState({
+          p_tis,
+          p_tisdef,
+          a_exlet
+        }))
+        emilia.dialOptions = {
+          {
+            "Crying",
+            function() 
+              gStateStack:push(PieceChainState({
+                p_tisdef
+              }))
+            end
+          }
+        }
+      end
+    )
+  end
+)
+
+-- Dialogue with Emilia after being presented with tissues evidence
+p_tis = TextPieceState(
+  "Sam",
+  {
+    "You said you didn't cry yesterday night? Can you you explain how these tissues ended up in the balcony trash can, the exact spot where April said you went to cry??"
+  }
+)
+
+p_tisdef = TextPieceState(
+  "Emilia",
+  {
+    "You found some tissues? That's your proof? They're not from me, even if you found them on the balcony, they could just as well be yours. Why would I even be crying?"
+  }
+)
+
+-- Set Emilia up to expect the rejection letter as evidence
+a_exlet = FunctionPieceState(
+  function()
+    emilia:setExpectations(
+      "Letter",
+      function()
+        gStateStack:push(PieceChainState({
+          p_letter,
+          p_admit,
+          p_move,
+          p_tokit
+        }))
+      end
+    )
+  end
+)
+
+-- Dialogue after presenting the letter
+p_letter = TextPieceState(
+  "Sam",
+  {
+    "I found the reason you cried, Em. Your application got rejected, right? I found it buried in the paper trash."
+  }
+)
+
+p_admit = TextPieceState(
+  "Emilia",
+  {
+    ". -- . -- .",
+    "Yes.",
+    "Ok, I admit it, I did it! I ate your cookies! I'm really really sorry, ok? I had a fucking terrible night yesterday."
+  }
+)
+
+p_move = TextPieceState(
+  "Sam",
+  {
+    "Oh, Em. I'm sorry. Should we talk it over in the living room?"
+  }
+)
+
+p_tokit = FunctionPieceState(
+  function()
+    currentLocation = locations.kitchen
+    -- New try TODO
+    -- table.insert(locations.kitchen.characters, emilia)
+    -- table.insert(locations.kitchen.characters, april)
+    locations.kitchen.characters = {emilia, april}
+    table.remove(locations.emilias_room)
+    table.remove(locations.aprils_room)
+  end
+)

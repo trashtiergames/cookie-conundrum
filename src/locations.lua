@@ -50,7 +50,7 @@ locations = {
             "Now, there's only crumbs left...",
             "Cookie crumbs",
             "I found these crumbs next to the tray where my cookies were cooling off yesterday.",
-            "art/Placeholder_Evidence_Icon.png"
+            "art/evidence/Crumbs.png"
           ),
           p_presc
         })

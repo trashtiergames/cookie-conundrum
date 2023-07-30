@@ -40,10 +40,21 @@ end
 
 function Location:draw()
   love.graphics.draw(self.img, 0, 0)
-  if self.characters then
+  if self.characters and #self.characters == 1 then
     for _, char in pairs(self.characters) do
       if char.show then
         char:draw()
+      end
+    end
+  elseif self.characters and #self.characters == 2 then
+    third = math.floor(1280 / 3)
+    translateX = -math.floor(third / 2)
+    for _, char in pairs(self.characters) do
+      if char.show then
+        love.graphics.translate(translateX, 0)
+        char:draw()
+        love.graphics.origin()
+        translateX = translateX + third
       end
     end
   end

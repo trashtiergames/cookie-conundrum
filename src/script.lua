@@ -549,11 +549,8 @@ p_move = TextPieceState(
 p_tokit = FunctionPieceState(
   function()
     currentLocation = locations.kitchen
-    -- New try TODO
-    -- table.insert(locations.kitchen.characters, emilia)
-    -- table.insert(locations.kitchen.characters, april)
     locations.kitchen.characters = {emilia, april}
-    table.remove(locations.emilias_room)
-    table.remove(locations.aprils_room)
+    table.remove(locations.emilias_door)
+    table.remove(locations.aprils_door)
   end
 )

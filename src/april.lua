@@ -4,7 +4,7 @@ sa_hello = TextPieceState(
     "*knock, knock, knock*",
     "Hey April? Wanna come open the door real quick?",
     ". -- . -- .",
-    "Seems like she's not waking up."
+    "Seems like she's not waking up. Maybe I'll go talk to Em first."
   }
 )
 

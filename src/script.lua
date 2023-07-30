@@ -101,8 +101,7 @@ p_trash = TextPieceState(
 )
 
 
--- After presenting crumbs to Emilia
-
+-- Dialogue after presenting crumbs to Emilia
 p_ate = TextPieceState(
   "Sam",
   {
@@ -121,7 +120,7 @@ p_rlytho = TextPieceState(
   "Sam",
   {
     "Don't interrupt!",
-    "I baked them yesterday evening, you must have heard, and I left them out to cool afterwards. But then I went to my room and feel asleep.",
+    "I baked them yesterday evening, you must have heard, and I left them out to cool afterwards. But then I went to my room and fell asleep.",
     "Did you eat them? Or did you see who ate them?"
   }
 )
@@ -148,6 +147,51 @@ p_wakey = FunctionPieceState(
       }
     })
   end
+)
+
+p_ynight = TextPieceState(
+  "Sam",
+  {
+    "What happened yesterday night?"
+  }
+)
+
+p_heard = TextPieceState(
+  "Emilia",
+  {
+    "I was getting ready to go to bed early. I think I went to sleep before you got started on the cookies. Or else I didn't notice.",
+    "I guess I was pretty caught up in studying and applying for internships.",
+    "Anyways, I went to sleep early, but I woke up in the middle of the night. April was coming home with a friend or something and I think they sat down right outside my door at the table.",
+    "He didn't stay long, but they talked pretty loudly about some guy that was really rude to them. I'm surprised you didn't wake up."
+  }
+)
+
+p_slept = TextPieceState(
+  "Sam",
+  {
+    "I was so tired I must've just been completely out."
+  }
+)
+
+p_culp = TextPieceState(
+  "Emilia",
+  {
+    "Well, I fell asleep after that as well. I don't wanna accuse anyone, but both of them would've had ample opportunity to eat your cookies."
+  }
+)
+
+p_guest = TextPieceState(
+  "Sam",
+  {
+    "So, this guy... Did he stay over with April?",
+  }
+)
+
+p_naw = TextPieceState(
+  "Emilia",
+  {
+    "Hmm, I'm not really sure. I fell asleep when they quieted down. I feel like he left, though."
+  }
 )
 
 -- April's response to accusations (TODO)

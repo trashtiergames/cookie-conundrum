@@ -36,7 +36,6 @@ e_crumb = FunctionPieceState(
                 "Did you eat my cookies?",
                 function() 
                   gStateStack:push(PieceChainState({
-                    -- TODO
                     p_ate,
                     p_brekki,
                     p_rlytho,
@@ -49,8 +48,10 @@ e_crumb = FunctionPieceState(
                 "Yesterday night",
                 function() 
                   gStateStack:push(PieceChainState({
-                    -- TODO
-                    p_test
+                    p_ynight,
+                    p_heard,
+                    p_slept,
+                    p_culp
                   }))
                 end
               },
@@ -58,8 +59,8 @@ e_crumb = FunctionPieceState(
                 "Anyone staying over?",
                 function() 
                   gStateStack:push(PieceChainState({
-                    -- TODO
-                    p_test
+                    p_guest,
+                    p_naw
                   }))
                 end
               }

@@ -2,9 +2,8 @@
 
 Clickable = Class{}
 
-function Clickable:init(name, x, y, w, h, consumable, pieceChainState)
+function Clickable:init(x, y, w, h, consumable, pieceChainState)
   -- Pass in a pieceChainState that will play when the clickable is clicked
-  self.name = name
   self.x = x
   self.y = y 
   self.w = w

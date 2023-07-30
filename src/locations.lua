@@ -4,31 +4,13 @@ locations = {
     "art/bg/sams_room.png", 
     {
       Clickable(
-        "getTestEvidence",
-        149,
-        132,
-        140,
-        140,
-        true,
-        PieceChainState({
-          p_test,
-          EviPieceState(
-            "It's a flower.",
-            "Flower",
-            "Definitely not evil. Just a really nice flower that was hidden behind a painting.",
-            "art/Placeholder_Evidence_Icon.png"
-          )
-        })
-      ),
-      Clickable(
-        "getTestDialogue",
-        300,
-        300,
-        100,
+        165,
+        150,
+        110,
         100,
         false,
         PieceChainState({
-          p_ttest
+          p_paint
         })
       )
     }
@@ -38,7 +20,6 @@ locations = {
     "art/bg/kitchen.png", 
     {
       Clickable(
-        "getCrumbz",
         807,
         411,
         350,
@@ -54,10 +35,44 @@ locations = {
           ),
           p_presc
         })
+      ),
+      Clickable(
+        135,
+        335,
+        60,
+        90,
+        true,
+        PieceChainState({
+          p_beer,
+          EviPieceState(
+            "There's lipstick on it.",
+            "Beer can",
+            "A can of Round Seal Ale with lipstick stains on it.",
+            "art/evidence/Beer.png"
+          ),
+          p_lipst
+        })
       )
     }),
   ["emilias_door"] =  Location("Emilia's Door", "art/bg/emilias_door.png", {}, {emilia}),
   ["aprils_door"] =   Location("April's Door",  "art/bg/aprils_door.png", {}, {april}),
-  ["balcony"] =       Location("Balcony",       "art/bg/balcony.png", {}),
+  ["balcony"] =       Location("Balcony",       "art/bg/balcony.png", {
+    Clickable(
+        600,
+        315,
+        105,
+        80,
+        true,
+        PieceChainState({
+          p_trash,
+          EviPieceState(
+            "Right on top are a bunch of tissues.",
+            "Tissues",
+            "Used tissues found in the trashcan.",
+            "art/evidence/Tissues.png"
+          )
+        })
+      )
+  }),
   ["darkness"] =      Location("Darkness",      "art/bg/darkness.png", {})
 }

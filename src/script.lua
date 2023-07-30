@@ -1,3 +1,4 @@
+-- Opening
 p_night = TextPieceState(
   "???",
   {
@@ -54,6 +55,15 @@ p_ttest = TextPieceState(
   }
 )
 
+-- For clickables in Sam's Room
+p_paint = TextPieceState(
+  "Sam",
+  {
+    "One of my proudest works."
+  }
+)
+
+-- For clickables in Kitchen
 p_crumbs = TextPieceState(
   "Sam",
   {
@@ -67,6 +77,29 @@ p_presc = TextPieceState(
     "I should PRESENT the evidence of the crime to the others."
   }
 )
+
+p_beer = TextPieceState(
+  "Sam",
+  {
+    "Looks like someone had a couple drinks here. There's two cans of 'Round Seal Ale'. Only one of them has been opened."
+  }
+)
+
+p_lipst = TextPieceState(
+  "Sam",
+  {
+    "Emilia doesn't use this color, so it's probably April's lipstick."
+  }
+)
+
+-- For clickables on Balcony
+p_trash = TextPieceState(
+  "Sam",
+  {
+    "There's a bunch of things in this trashcan. Chips bags, random packagings, bottles... Oh. Looks like someone cried a lot very recently."
+  }
+)
+
 
 -- After presenting crumbs to Emilia
 
@@ -109,7 +142,6 @@ p_wakey = FunctionPieceState(
         "Did you eat my cookies?",
         function() 
           gStateStack:push(PieceChainState({
-            -- TODO (does it work even though this var is only defined below?)
             p_hi
           }))
         end

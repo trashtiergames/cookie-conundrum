@@ -138,10 +138,14 @@ p_wakey = FunctionPieceState(
   function()
     setTalkOptions("April", {
       {
-        "Did you eat my cookies?",
+        "Wake up!",
         function() 
           gStateStack:push(PieceChainState({
-            p_hi
+            p_knock,
+            p_hi,
+            toggleAprilShowState,
+            p_goodm,
+            p_def
           }))
         end
       }
@@ -194,11 +198,218 @@ p_naw = TextPieceState(
   }
 )
 
--- April's response to accusations (TODO)
+-- April's first dialogues
+p_knock = TextPieceState(
+  "Sam",
+  {
+    "*KNOCK KNOCK KNOCK*",
+    "Wake up, April, I really need to talk to you! I know you ate my cookies!"
+  }
+)
+
 p_hi = TextPieceState(
   "April",
   {
-    "Yo good morning.",
-    "This is a test largely, I still have to wake up properly man."
+    ". -- . -- .",
+    "What?"
   }
 )
+
+p_goodm = TextPieceState(
+  "April",
+  {
+    "Good morning to you, too.",
+    "Now what's this cookie business?",
+  }
+)
+
+-- Set April's menu options after first confrontation
+p_def = FunctionPieceState(
+  function()
+    for _, char in pairs(currentLocation.characters) do
+      if char.name == "April" then
+        char.dialOptions = {
+          {
+            "My cookies are gone",
+            function()
+              gStateStack:push(PieceChainState({
+                p_info,
+                p_ok,
+                p_expl,
+                p_pff
+              }))
+            end
+          },
+          {
+            "Yesterday night",
+            function() 
+              gStateStack:push(PieceChainState({
+                p_ynight2,
+                p_home,
+                a_exbeer
+              }))
+            end
+          }
+        }
+      end
+    end
+  end
+)
+
+-- April's dialogues after first confrontation
+p_info = TextPieceState(
+  "Sam",
+  {
+    "So I baked some cookies yesterday, which are now gone. I put them out right before I went to sleep."
+  }
+)
+
+p_ok = TextPieceState(
+  "April",
+  {
+    "Ok, what does that have to do with me? This is why I had to leave the sacred sanctuary that is my bed?"
+  }
+)
+
+p_expl = TextPieceState(
+  "Sam",
+  {
+    "Well, I didn't eat them, and there are a limited number of people who would have had the chance to do that."
+  }
+)
+
+p_pff = TextPieceState(
+  "April",
+  {
+    "I didn't do it. Can I go back to bed now?"
+  }
+)
+
+p_ynight2 = TextPieceState(
+  "Sam",
+  {
+    "What did you do yesterday night?"
+  }
+)
+
+p_home = TextPieceState(
+  "April",
+  {
+    "I came home from the bar before midnight and went straight to bed, I was super tired. The only places I went were the hallway and the bathroom."
+  }
+)
+
+
+-- Setting April up for beer evidence
+a_exbeer = FunctionPieceState(
+  function()
+    for _, char in pairs(currentLocation.characters) do
+      if char.name == "April" then
+        char:setExpectations(
+          "Beer can",
+          function()
+            gStateStack:push(PieceChainState({
+              p_can,
+              p_candef
+            }))
+            char.dialOptions = {
+              {
+                "Jimmy",
+                function() 
+                  gStateStack:push(PieceChainState({
+                    p_jimmy
+                  }))
+                end
+              },
+              {
+                "The cookies",
+                function() 
+                  gStateStack:push(PieceChainState({
+                    p_cookies,
+                    p_notme
+                  }))
+                end
+              },
+              {
+                "See anything?",
+                function() 
+                  gStateStack:push(PieceChainState({
+                    p_see,
+                    p_gttp,
+                    p_sound
+                  }))
+                end
+              }
+            }
+          end
+        )
+      end
+    end
+  end
+)
+
+p_can = TextPieceState(
+  "Sam",
+  {
+    "You said you went straight to bed?",
+    "Then how do you explain this beer can that was on the table?? Plus, Emilia said she heard you talking to some guy? You're trying to cover something up!"
+  }
+)
+
+p_candef = TextPieceState(
+  "April",
+  {
+    "Ugh. Try to keep one thing to yourself in this apartment. Can't believe Emilia immediately ratted me out.",
+    "Ok, I was having a drink with Jimmy. But I swear I didn't eat your cookies. I can explain."
+  }
+)
+
+-- Dialogue options after presenting the beer to April
+p_jimmy = TextPieceState(
+  "April",
+  {
+    "Alright. So I did come in here with Jimmy after the night out, and it might have been a little late. But we just sat down because I needed to vent about today.",
+    "We shared a beer and bitched about this guy at the bar for a while. I'll spare you the details, but he was fucking rude. I saw that you had cookies cooling on the tray, but didn't touch them.",
+    "Anyways, Jimmy left after a short while and I went to sleep."
+  }
+)
+
+p_cookies = TextPieceState(
+  "Sam",
+  {
+    "Just so I have that on record, neither you nor Jimmy ate any cookies?"
+  }
+)
+
+p_notme = TextPieceState(
+  "April",
+  {
+    "Even if I was hangry, I wouldn't be dumb enough to just eat my roommate's cookies and leave an empty tray out.",
+    "So no, I didn't eat your cookies. Jimmy did ask about them, but I told them they're not mine, so he didn't eat any either.",
+    "Something else happened though that you should know about."
+  }
+)
+
+p_see = TextPieceState(
+  "April",
+  {
+    "I cannot believe Em would throw me under the bus like that. I was trying to cover for her, but it seems like she can't solve this without blaming me.",
+  }
+)
+
+p_gttp = TextPieceState(
+  "Sam",
+  {
+    "Alright, get to the point. What did you see."
+  }
+)
+
+p_sound = TextPieceState(
+  "April",
+  {
+    "I didn't see anything, but I did hear something after I went to my room. Em went out to the balcony to cry. I heard her storm out of her room and open the balcony door.",
+    "I was not in a state to deal with it, and I was already basically asleep, so I just kinda passed out.",
+    "But if you ask me, she was probably upset about something and ate your cookies, and then tried to pin the whole thing on me."
+  }
+)
+

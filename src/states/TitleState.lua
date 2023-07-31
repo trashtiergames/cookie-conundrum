@@ -7,9 +7,11 @@ function TitleState:init()
 end
 
 function TitleState:enter()
+  music:play()
 end
 
 function TitleState:exit()
+  music:stop()
 end
 
 function TitleState:update()

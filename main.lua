@@ -12,6 +12,11 @@ function love.load()
   quicksandMenu = love.graphics.newFont("font/quicksand.ttf", 32)
   quicksandMedium = love.graphics.newFont("font/quicksand.ttf", 40)
 
+  -- Prep music
+  music = love.audio.newSource("audio/meditative.wav", "stream")
+  music:setVolume(0.5)
+  music:setLooping(true)
+
   -- Prepare state stack
   gStateStack = StateStack()
   gStateStack:push(TitleState())
@@ -51,25 +56,6 @@ function love.keypressed(key)
   if key == "escape" then
     love.event.quit()
   end
-
-  if key == "t" then
-    -- testStrings = {
-    --   "Hi! Welcome to the game.",
-    --   "I hope you make yourself comfortable.",
-    --   "Maybe get some snacks. I hear those ranch chips are banger. I'll write some more text here, just so you can see how much really fits in this box. That's how much I like you. Sooooo much. So much that I'll write some more text."
-    -- }
-    -- testDiag = Talkies.say("Title", testStrings)
-    -- print("testDiag say statement created")
-    -- print("testDiag shown status is " .. tostring(testDiag:isShown()))
-  end
-
-  if key == "i" then
-    print("Current inventory:")
-    for _, piece in pairs(inventory) do
-      print(piece.name)
-    end
-  end
-  
   love.keyboard.keysPressed[key] = true
 end
 

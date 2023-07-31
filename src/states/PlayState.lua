@@ -34,7 +34,10 @@ function PlayState:update(dt)
       and not self.flags.crime_scene_discovered then
     self.flags.crime_scene_discovered = true
     gStateStack:push(PieceChainState({
-      p_disc
+      p_disc,
+      FunctionPieceState(
+        function() music:play() end
+      )
     }))
   end
 end

@@ -134,8 +134,7 @@ locations = {
           )
         })
       )
-    },
-    {}
+    }
   ),
   ["emilias_door"] =  Location("Emilia's Door", "art/bg/emilias_door.png", {
     Clickable(

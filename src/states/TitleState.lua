@@ -7,12 +7,9 @@ function TitleState:init()
 end
 
 function TitleState:enter()
-  -- titleTheme:setLooping(true)
-  -- titleTheme:play()
 end
 
 function TitleState:exit()
-  -- titleTheme:stop()
 end
 
 function TitleState:update()

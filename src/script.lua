@@ -515,7 +515,16 @@ a_exlet = FunctionPieceState(
           p_letter,
           p_admit,
           p_move,
-          p_tokit
+          p_tokit,
+          p_recap,
+          p_itsok,
+          p_why,
+          p_retrace,
+          p_cons,
+          p_letsgo,
+          p_bye,
+          p_end,
+          p_fin
         }))
       end
     )
@@ -552,5 +561,72 @@ p_tokit = FunctionPieceState(
     locations.kitchen.characters = {emilia, april}
     table.remove(locations.emilias_door)
     table.remove(locations.aprils_door)
+  end
+)
+
+-- Ending in kitchen
+p_recap = TextPieceState(
+  "Emilia",
+  {
+    "It was me. I'm sorry I ate your cookies. They just looked too delicious and I couldn't help myself. I shouldn't have done that.",
+    "And April, I'm sorry I blamed you. I don't know what I expected Sam to think when I told her it wasn't me.. obviously you would be suspicious."
+  }
+)
+
+p_itsok = TextPieceState(
+  "April",
+  {
+    "Yeah, that was not cool man. I missed some prime beauty sleep."
+  }
+)
+
+p_why = TextPieceState(
+  "Sam",
+  {
+    "So what exactly happened yesterday?"
+  }
+)
+
+p_retrace = TextPieceState(
+  "Emilia",
+  {
+    "Well, it started with the letter you found. It was sort of a dream internship and it's been the third rejection letter this week.",
+    "After I studied for the finals all day, it all kind of boiled over. I went outside to the balcony to blow off some steam and get some fresh air.",
+    "I stayed out there for a while, and when I came back, I noticed the smell of your cookies. It smelled so good! Anyways, the rest is history.",
+    "I hid the letter so wouldn't suspect me and went to bed."
+  }
+)
+
+p_cons = TextPieceState(
+  "Sam",
+  {
+    "It's ok, Em. I didn't realize you're feeling so crap. How about we get started on another batch together?"
+  }
+)
+
+p_letsgo = TextPieceState(
+  "Emilia",
+  {
+    "That sounds nice."
+  }
+)
+
+p_bye = TextPieceState(
+  "April",
+  {
+    "Hooray for you guys. I'm going back to sleep. Byeee!"
+  }
+)
+
+p_end = TextPieceState(
+  "",
+  {
+    "And so Emilia and Sam got along again and good vibes returned to the apartment."
+  }
+)
+
+p_fin = FunctionPieceState(
+  function()
+    gStateStack:push(EndState())
   end
 )

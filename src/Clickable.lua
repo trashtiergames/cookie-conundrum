@@ -11,7 +11,7 @@ function Clickable:init(x, y, w, h, consumable, pieceChainState)
   self.consumable = consumable
   self.consumed = false
   self.pieceChainState = pieceChainState
-  self.debug = true
+  self.debug = false
 end
 
 function Clickable:update(dt) 

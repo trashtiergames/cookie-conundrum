@@ -593,7 +593,7 @@ p_retrace = TextPieceState(
     "Well, it started with the letter you found. It was sort of a dream internship and it's been the third rejection letter this week.",
     "After I studied for the finals all day, it all kind of boiled over. I went outside to the balcony to blow off some steam and get some fresh air.",
     "I stayed out there for a while, and when I came back, I noticed the smell of your cookies. It smelled so good! Anyways, the rest is history.",
-    "I hid the letter so wouldn't suspect me and went to bed."
+    "I hid the letter so you wouldn't suspect me and went to bed."
   }
 )
 
